@@ -1,7 +1,10 @@
 package br.com.keyla.mvc.webapp.controller;
 
-import java.util.Arrays;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,15 +15,16 @@ import br.com.keyla.mvc.webapp.model.Pedido;
 @Controller
 public class HomeController {
 	
+	@PersistenceContext
+	private EntityManager entityManager;
+	
 	@GetMapping("/home")
 	public String home(Model model) {
-		Pedido pedido = new Pedido();
-		pedido.setNomeProduto("Xiaomi Redmi Note 8");
-		pedido.setUrlImagem("https://m.media-amazon.com/images/I/51RIqTiRc8L._AC_SL1000_.jpg");
-		pedido.setUrlProduto("https://www.amazon.com.br/Smartphone-Xiaomi-Redmi-Note-Camera/dp/B07Z5BBG56");
-		pedido.setDescricao("Descrição para este pedido.");
 		
-		List<Pedido> pedidos = Arrays.asList(pedido);
+		Query query = entityManager.createQuery("select p from Pedido p", Pedido.class);
+		List<Pedido> pedidos = query.getResultList();		
+		
+		
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 		

@@ -1,10 +1,21 @@
 package br.com.keyla.mvc.webapp.dto;
 
+import javax.validation.constraints.NotBlank;
+
+import br.com.keyla.mvc.webapp.model.Pedido;
+
 public class RequisicaoNovoPedido {
 	
+	@NotBlank //NotBlank.requisicaoNovoProduto.nomeProduto= não deve estar em branco
+	          //para alterar essa mensagem é possivel colocar a msg no proprio atributo(@NotBlank(msg), ou criar um arquivo .properties
 	private String nomeProduto;
+	
+	@NotBlank
 	private String urlProduto;
+	
+	@NotBlank
 	private String urlImagem;
+	
 	private String descricao;
 	
 	
@@ -31,6 +42,15 @@ public class RequisicaoNovoPedido {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+	public Pedido toPedido() {
+		Pedido pedido = new Pedido();
+		pedido.setDescricao(descricao);
+		pedido.setNomeProduto(nomeProduto);
+		pedido.setUrlImagem(urlImagem);
+		pedido.setUrlProduto(urlProduto);
+		
+		return pedido;
 	}
 	
 	

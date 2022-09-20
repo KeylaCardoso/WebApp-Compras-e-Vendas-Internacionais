@@ -34,7 +34,7 @@ public class PedidoController {
 		
 		Pedido pedido = requisicao.toPedido();                                         // dos dados anotados como @NotBlando na classe Requisicao
 		pedidoRepository.save(pedido);
-		return "pedido/formulario";
+		return "redirect:/home";
 	 }
 
 }

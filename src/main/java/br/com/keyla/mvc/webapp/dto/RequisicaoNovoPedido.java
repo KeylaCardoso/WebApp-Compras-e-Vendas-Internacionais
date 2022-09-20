@@ -3,6 +3,7 @@ package br.com.keyla.mvc.webapp.dto;
 import javax.validation.constraints.NotBlank;
 
 import br.com.keyla.mvc.webapp.model.Pedido;
+import br.com.keyla.mvc.webapp.model.StatusPedido;
 
 public class RequisicaoNovoPedido {
 	
@@ -49,6 +50,7 @@ public class RequisicaoNovoPedido {
 		pedido.setNomeProduto(nomeProduto);
 		pedido.setUrlImagem(urlImagem);
 		pedido.setUrlProduto(urlProduto);
+		pedido.setStatus(StatusPedido.AGUARDANDO);
 		
 		return pedido;
 	}

@@ -1,5 +1,6 @@
 package br.com.keyla.mvc.webapp.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,8 @@ public class HomeController {
 	private PedidoRepository pedidoRepository;
 		
 	@GetMapping  //apenas/home
-	public String home(Model model) {
-		
-		List<Pedido> pedidos = pedidoRepository.findAll();		
+	public String home(Model model, Principal principal) { //Principal injeta os dados do usuario logado
+		List<Pedido> pedidos = pedidoRepository.findAllByUsuario(principal.getName());		
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 		

@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+		.csrf().disable()
 		.authorizeRequests()
 		.antMatchers("/home/**") //cria uma excessao para que a pagina home seja exibida mesmo que nao tenha usuario logado	
 			.permitAll()
@@ -40,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			 
 		 logout.logoutUrl("/logout")
 		 	.logoutSuccessUrl("/home");
-		 //.csrf().disable();
+		    
 		 });
 	}
 	

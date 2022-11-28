@@ -3,7 +3,7 @@
 <h2>Project Description<h2>
 <p>This is a Spring MVC project. It is a web application that aims to create a place 
 where it's possible to buy objects through people who are going abroad.
-For this purpose it was used the Spring MVC, Spring Security, Thymeleaf, Bootstrap, integration with Spring Data, API REST, AJAX, Vue.js e monitoramento com Interceptadores<p>
+For this purpose it was used the Spring MVC, Spring Security, Thymeleaf, Bootstrap, integration with Spring Data, API REST, AJAX, Vue.js e monitoramento com Interceptadores. A login screen has also been implemented in this application<p>
 <p> An image of the web page created is presented below<p>
 
 <p align="center">
